@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { fetchStreams } from '../../actions';
 
+
 class StreamList extends React.Component {
 
     componentDidMount() {
@@ -12,11 +13,11 @@ class StreamList extends React.Component {
 
     renderAdmin(stream) {
         const { currentUserId } = this.props;
-        
+
         if (currentUserId === stream.userId)
             return (
                 <div className="right floated content">
-                    <button className="ui button primary">Edit</button>
+                    <Link className="ui button primary" to={`/streams/edit/${stream.id}`}>Edit</Link>
                     <button className="ui button negative">Delete</button>
                 </div>
             )
